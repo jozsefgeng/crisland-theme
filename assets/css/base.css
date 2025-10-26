@@ -1,0 +1,65 @@
+.bg-color-neutral-100 {
+    background: var(--contrast);
+}
+
+.bg-color-blue-100 {
+    background: #215195;
+    background-color: #215195;
+}
+
+.bg-color-gray-100 {
+    color: #f0f0f0
+}
+
+.border-color-gray-200 {
+    border-color: #ccc;
+}
+
+.border-color-gray-250 {
+    border-color: #999;
+}
+
+.text-color-neutral-100 {
+    color: var(--contrast);
+}
+
+.color-gray-250 {
+    color: #999;
+}
+
+.color-gray-500 {
+    color: #323232;
+}
+
+.color-neutral-100 {
+    color: var(--contrast);
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.hover\:color-neutral-100 {
+    color: var(--contrast);
+    ;
+}
