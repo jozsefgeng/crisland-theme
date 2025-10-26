@@ -57,6 +57,12 @@ function crisland_theme_register_menus()
     );
 }
 
+function crisland_favicon()
+{
+    echo '<link rel="icon" href="' . get_stylesheet_directory_uri() . '/assets/images/icon/favicon.ico" type="image/png">';
+}
+
+
 function remove_storefront_header_hooks()
 {
     remove_action('storefront_header', 'storefront_site_branding', 20);
@@ -68,5 +74,6 @@ function remove_storefront_header_hooks()
 }
 
 add_action('init', 'crisland_theme_register_menus');
-add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
 add_action('init', 'remove_storefront_header_hooks');
+add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
+add_action('wp_head', 'crisland_favicon');
