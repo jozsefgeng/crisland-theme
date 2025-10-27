@@ -1,0 +1,12 @@
+<script id="tmpl-nf-field-label" type="text/template">
+	<div class="nf-field-label">
+		<# if ( data.type === "listcheckbox" ||  data.type === "checkbox" || data.type === "listradio" || data.type === "listimage" || data.type === "date" || data.type === "starrating" ) { #>
+			<label for="nf-field-{{{ data.id }}}"
+					id="nf-label-field-{{{ data.id }}}"
+					class="{{{ data.renderLabelClasses() }}}">
+						{{{ ( data.maybeFilterHTML() === 'true' ) ? _.escape( data.label ) : data.label }}} {{{ ( 'undefined' != typeof data.required && 1 == data.required ) ? '' : '' }}} 
+						{{{ data.maybeRenderHelp() }}}
+			</label>
+		<# } #>
+	</div>
+</script>
