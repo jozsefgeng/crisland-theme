@@ -25,9 +25,9 @@
                     <div class="mb-5">
                         <p class="mb-1.5 text-base uppercase"><?php echo __('Adresă:'); ?></p>
                         <address class="not-italic text-base">
-							SC Medical Outfit SRL<br>
-							Str. Campului Nr. 18<br>
-							540175 Târgu Mureş<br>
+							SC CRISLAND 4 CO SRL<br>
+							Strada Calea Bucuresti 300<br>
+							085200 Mihailesti<br>
 							România
                         </address>
                     </div>
@@ -139,6 +139,11 @@
                             <?php echo __('Modalități de livrare:'); ?>
                         </p>
                         <ul class="flex flex-wrap list-none pl-0">
+							<li class="flex items-center">
+                                <span class="block mb-0 w-20">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon/dpd.png" class="w-20">
+                                </span>
+                            </li>
                             <li>
                                 <span class="block mb-0 w-20">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon/sameday.png" class="w-20">
