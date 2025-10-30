@@ -67,10 +67,11 @@ function remove_storefront_header_hooks()
 {
     remove_action('storefront_header', 'storefront_site_branding', 20);
     remove_action('storefront_header', 'storefront_product_search', 40);
-    remove_action('storefront_header', 'storefront_primary_navigation_wrapper', 60);
-    remove_action('storefront_header', 'storefront_primary_navigation', 80);
-    remove_action('storefront_header', 'storefront_header_cart', 100);
-    remove_action('storefront_header', 'storefront_primary_navigation_wrapper_close', 120);
+    remove_action('storefront_header', 'storefront_product_search', 40);
+    remove_action('storefront_header', 'storefront_primary_navigation_wrapper', 42);
+    remove_action('storefront_header', 'storefront_primary_navigation', 50);
+    remove_action('storefront_header', 'storefront_primary_navigation_wrapper_close', 68);
+    remove_action('storefront_header', 'storefront_header_cart', 60);
 }
 
 
