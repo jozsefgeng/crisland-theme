@@ -62,6 +62,35 @@ function crisland_favicon()
     echo '<link rel="icon" href="' . get_stylesheet_directory_uri() . '/assets/images/icon/favicon.ico" type="image/png">';
 }
 
+add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
+    $defaults['delimiter']   = '<span class="breadcrumb-separator"> / </span>';
+    $defaults['wrap_before'] = '<div class="storefront-breadcrumb"><div class="max-w-screen-xl m-auto 2xl:max-w-screen-2xl"><nav class="woocommerce-breadcrumb" aria-label="' . esc_attr__('breadcrumbs', 'storefront') . '">';
+    $defaults['wrap_after']  = '</nav></div></div>';
+
+    return $defaults;
+});
+
+function crisland_breadcrumb_delimiter($defaults)
+{
+    $defaults['delimiter']   = '<span class="breadcrumb-separator"> / </span>';
+    $defaults['wrap_before'] = '<div class="storefront-breadcrumb"><div class="max-w-screen-xl m-auto 2xl:max-w-screen-2xl"><nav class="woocommerce-breadcrumb" aria-label="' . esc_attr__('breadcrumbs', 'storefront') . '">';
+    $defaults['wrap_after']  = '</nav></div></div>';
+    return $defaults;
+}
+
+function remove_search_widget_from_sidebar()
+{
+    $sidebars_widgets = wp_get_sidebars_widgets();
+
+    if (! empty($sidebars_widgets['sidebar-1'])) {
+        foreach ($sidebars_widgets['sidebar-1'] as $key => $widget_id) {
+            if (strpos($widget_id, 'block-2') !== false) {
+                unset($sidebars_widgets['sidebar-1'][ $key ]);
+            }
+        }
+        wp_set_sidebars_widgets($sidebars_widgets);
+    }
+}
 
 function remove_storefront_header_hooks()
 {
@@ -85,3 +114,5 @@ add_action('init', 'remove_storefront_header_hooks');
 add_action('init', 'remove_storefront_footer_hooks');
 add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
 add_action('wp_head', 'crisland_favicon');
+add_filter('woocommerce_breadcrumb_defaults', 'crisland_breadcrumb_delimiter', 20);
+add_action('widgets_init', 'remove_search_widget_from_sidebar', 20);

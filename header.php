@@ -178,7 +178,7 @@
 ?>
 
         <div id="content" class="site-content" tabindex="-1">
-            <div class="col-full">
+            <div class="max-w-screen-xl m-auto 2xl:max-w-screen-2xl">
 
                 <?php
     do_action('storefront_content_top');
