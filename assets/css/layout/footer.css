@@ -1,0 +1,12 @@
+.site-footer {
+    padding: 0;
+}
+
+.site-footer a {
+    text-decoration: none;
+}
+
+.site-footer .footer-bottom a:not(.button):not(.components-button) {
+    color: #ffffff;
+    text-decoration: none;
+}

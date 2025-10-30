@@ -73,7 +73,14 @@ function remove_storefront_header_hooks()
     remove_action('storefront_header', 'storefront_primary_navigation_wrapper_close', 120);
 }
 
+
+function remove_storefront_footer_hooks()
+{
+    remove_action('storefront_footer', 'storefront_credit', 20);
+}
+
 add_action('init', 'crisland_theme_register_menus');
 add_action('init', 'remove_storefront_header_hooks');
+add_action('init', 'remove_storefront_footer_hooks');
 add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
 add_action('wp_head', 'crisland_favicon');
