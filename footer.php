@@ -141,7 +141,7 @@
                         <ul class="flex flex-wrap list-none pl-0">
                             <li>
                                 <span class="block mb-0 w-20">
-                                    <img src="http://shopware.medfit.ro/theme/0199733d97f1738d944e173a7353c773/assets/icon/sameday.png?1760873633" class="w-20">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon/sameday.png" class="w-20">
                                 </span>
                             </li>
                         </ul>
