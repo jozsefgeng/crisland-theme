@@ -92,6 +92,23 @@ function remove_search_widget_from_sidebar()
     }
 }
 
+function storefront_remove_sidebar()
+{
+    if (!is_product_category()) {
+        remove_action('storefront_sidebar', 'storefront_get_sidebar');
+    }
+}
+
+function remove_storefront_homepage_header()
+{
+    if (!is_home() && !is_front_page()) {
+        return;
+    }
+
+    remove_action('storefront_page', 'storefront_page_header', 10);
+
+}
+
 function remove_storefront_header_hooks()
 {
     remove_action('storefront_header', 'storefront_site_branding', 20);
@@ -109,10 +126,19 @@ function remove_storefront_footer_hooks()
     remove_action('storefront_footer', 'storefront_credit', 20);
 }
 
+function remove_sidebar_class_from_body($classes)
+{
+    $classes = array_diff($classes, ['left-sidebar', 'right-sidebar']);
+    return $classes;
+}
+
 add_action('init', 'crisland_theme_register_menus');
 add_action('init', 'remove_storefront_header_hooks');
 add_action('init', 'remove_storefront_footer_hooks');
+add_action('template_redirect', 'remove_storefront_homepage_header');
+add_filter('body_class', 'remove_sidebar_class_from_body', 20);
 add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
 add_action('wp_head', 'crisland_favicon');
 add_filter('woocommerce_breadcrumb_defaults', 'crisland_breadcrumb_delimiter', 20);
 add_action('widgets_init', 'remove_search_widget_from_sidebar', 20);
+add_action('get_header', 'storefront_remove_sidebar');

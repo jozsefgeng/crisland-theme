@@ -59,3 +59,7 @@
     color: var(--contrast);
     ;
 }
+
+.home.page:not(.page-template-template-homepage) .site-header {
+    margin-bottom: 0;
+}

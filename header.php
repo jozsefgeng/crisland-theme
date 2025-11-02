@@ -178,7 +178,7 @@
 ?>
 
         <div id="content" class="site-content" tabindex="-1">
-            <div class="max-w-screen-xl m-auto 2xl:max-w-screen-2xl">
+            <div <?php echo !is_home() && ! is_front_page() ? 'class="max-w-screen-xl m-auto 2xl:max-w-screen-2xl"' : ''; ?>>
 
                 <?php
     do_action('storefront_content_top');
