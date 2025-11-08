@@ -3,6 +3,16 @@
     background-color: #215195;
 }
 
+.bg-color-blue-50 {
+    background: #3968ac;
+    background-color: #3968ac;
+}
+
+
+.border-color-blue-100 {
+    border-color: #215195;
+}
+
 .bg-color-gray-100 {
     color: #f0f0f0
 }
@@ -13,6 +23,10 @@
 
 .border-color-gray-250 {
     border-color: #999;
+}
+
+.text-color-blue-100 {
+    color: #215195;
 }
 
 .text-color-neutral-100 {

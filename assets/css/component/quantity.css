@@ -1,0 +1,10 @@
+.quantity {
+    width: 100%;
+}
+
+.quantity .qty {
+    background: none;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    width: 100%;
+}
