@@ -131,11 +131,41 @@ function remove_storefront_singele_page_hooks()
     remove_action('woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30);
 }
 
-
 function remove_sidebar_class_from_body($classes)
 {
     $classes = array_diff($classes, ['left-sidebar', 'right-sidebar']);
     return $classes;
+}
+
+function crisland_template_single_product_sku()
+{
+    return crisland_get_template('templates/single-product/sku');
+}
+
+/**
+ * @param [type] $return
+ * @param [type] $price
+ * @param [type] $args
+ * @param [type] $unformatted_price
+ * @param [type] $original_price
+ * @return void
+ */
+function crisland_wrap_price_decimals(
+    $return,
+    $price,
+    $args,
+    $unformatted_price,
+    $original_price
+) {
+    $decimal_separator = wc_get_price_decimal_separator();
+
+    list($int, $dec) = explode($decimal_separator, $price, 2);
+    $priceHtml = '<span class="woocommerce-Price-amount amount"><bdi>' . $int .  $decimal_separator;
+    $priceHtml .= '<span class="woocommerce-Price-amount-decimal align-super text-sm">' . $dec . '</span>';
+    $priceHtml .= '<span class="woocommerce-Price-currencySymbol">' . ' ' . get_woocommerce_currency_symbol() . '</span>';
+    $priceHtml .= '</bdi></span>';
+
+    return $priceHtml;
 }
 
 add_action('init', 'crisland_theme_register_menus');
@@ -149,3 +179,5 @@ add_action('wp_head', 'crisland_favicon');
 add_filter('woocommerce_breadcrumb_defaults', 'crisland_breadcrumb_delimiter', 20);
 add_action('widgets_init', 'remove_search_widget_from_sidebar', 20);
 add_action('get_header', 'storefront_remove_sidebar');
+add_action('woocommerce_single_product_summary', 'crisland_template_single_product_sku', 6);
+add_filter('wc_price', 'crisland_wrap_price_decimals', 10, 5);
