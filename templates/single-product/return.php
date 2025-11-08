@@ -6,7 +6,7 @@ if (! defined('ABSPATH')) {
 
 ?>
 
-<div class="flex items-center text-base text-color-neutral-100 mb-2.5">
+<div class="flex items-center text-base text-color-neutral-100 mb-5">
     <span class="mr-2.5 text-color-blue-100">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="#215195" class="w-7 h-7">
             <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->

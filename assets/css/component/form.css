@@ -1,0 +1,9 @@
+table:not(.has-background) tbody td {
+    background: none;
+    background-color: transparent;
+}
+
+table:not(.has-background) tbody tr:nth-child(2n) td {
+    background: none;
+    background-color: transparent;
+}

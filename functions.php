@@ -130,8 +130,7 @@ function remove_storefront_singele_page_hooks()
 {
     remove_action('woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30);
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
-
-
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 }
 
 function remove_sidebar_class_from_body($classes)
@@ -158,6 +157,21 @@ function crisland_template_single_product_return()
 function crisland_template_single_product_contact()
 {
     return crisland_get_template('templates/single-product/contact');
+}
+
+function crisland_template_single_product_description()
+{
+    return crisland_get_template('templates/single-product/description');
+}
+
+function crisland_template_single_product_technical_description()
+{
+    return crisland_get_template('templates/single-product/technical-description');
+}
+
+function crisland_remove_product_tabs($tabs)
+{
+    return [];
 }
 
 /**
@@ -202,3 +216,6 @@ add_action('woocommerce_single_product_summary', 'crisland_template_single_produ
 add_action('woocommerce_single_product_summary', 'crisland_template_single_product_return', 40);
 add_action('woocommerce_single_product_summary', 'crisland_template_single_product_contact', 50);
 add_filter('wc_price', 'crisland_wrap_price_decimals', 10, 5);
+add_filter('woocommerce_product_tabs', 'crisland_remove_product_tabs', 98);
+add_action('woocommerce_after_single_product_summary', 'crisland_template_single_product_description', 5);
+add_action('woocommerce_after_single_product_summary', 'crisland_template_single_product_technical_description', 5);
