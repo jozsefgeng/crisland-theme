@@ -637,6 +637,10 @@ video {
   grid-column: span 2 / span 2;
 }
 
+.float-right {
+  float: right;
+}
+
 .m-auto {
   margin: auto;
 }

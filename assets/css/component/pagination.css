@@ -1,0 +1,24 @@
+.woocommerce-pagination {
+    float: none;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers {
+    background-color: #ffffff;
+    color: #272723;
+    border: 1px solid #ccc;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+    color: #272723;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers.current {
+    background-color: #215195;
+    border-color: #215195;
+    color: #ffffff;
+}
+
+.woocommerce-pagination .next::after,
+.woocommerce-pagination .prev::after {
+    color: #272723;
+}
