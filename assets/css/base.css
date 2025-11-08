@@ -63,3 +63,7 @@
 .home.page:not(.page-template-template-homepage) .site-header {
     margin-bottom: 0;
 }
+
+body {
+    font-family: 'Nunito', Arial, sans-serif;
+}

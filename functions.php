@@ -126,6 +126,12 @@ function remove_storefront_footer_hooks()
     remove_action('storefront_footer', 'storefront_credit', 20);
 }
 
+function remove_storefront_singele_page_hooks()
+{
+    remove_action('woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30);
+}
+
+
 function remove_sidebar_class_from_body($classes)
 {
     $classes = array_diff($classes, ['left-sidebar', 'right-sidebar']);
@@ -135,6 +141,7 @@ function remove_sidebar_class_from_body($classes)
 add_action('init', 'crisland_theme_register_menus');
 add_action('init', 'remove_storefront_header_hooks');
 add_action('init', 'remove_storefront_footer_hooks');
+add_action('init', 'remove_storefront_singele_page_hooks');
 add_action('template_redirect', 'remove_storefront_homepage_header');
 add_filter('body_class', 'remove_sidebar_class_from_body', 20);
 add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
