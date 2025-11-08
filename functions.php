@@ -94,9 +94,11 @@ function remove_search_widget_from_sidebar()
 
 function storefront_remove_sidebar()
 {
-    if (!is_product_category()) {
-        remove_action('storefront_sidebar', 'storefront_get_sidebar');
+    if (is_product_category()) {
+        return;
     }
+
+    remove_action('storefront_sidebar', 'storefront_get_sidebar');
 }
 
 function remove_storefront_homepage_header()
@@ -133,8 +135,19 @@ function remove_storefront_singele_page_hooks()
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 }
 
+function remove_storefront_shop_loop_hooks()
+{
+    remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+    remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+}
+
+
 function remove_sidebar_class_from_body($classes)
 {
+    if (is_product_category()) {
+        return $classes;
+    }
+
     $classes = array_diff($classes, ['left-sidebar', 'right-sidebar']);
     return $classes;
 }
@@ -167,6 +180,11 @@ function crisland_template_single_product_description()
 function crisland_template_single_product_technical_description()
 {
     return crisland_get_template('templates/single-product/technical-description');
+}
+
+function crisland_template_loop_product_title()
+{
+    return crisland_get_template('templates/loop/product-title');
 }
 
 function crisland_remove_product_tabs($tabs)
@@ -204,6 +222,7 @@ add_action('init', 'crisland_theme_register_menus');
 add_action('init', 'remove_storefront_header_hooks');
 add_action('init', 'remove_storefront_footer_hooks');
 add_action('init', 'remove_storefront_singele_page_hooks');
+add_action('init', 'remove_storefront_shop_loop_hooks');
 add_action('template_redirect', 'remove_storefront_homepage_header');
 add_filter('body_class', 'remove_sidebar_class_from_body', 20);
 add_action('wp_enqueue_scripts', 'enqueue_alpine_js');
@@ -219,3 +238,4 @@ add_filter('wc_price', 'crisland_wrap_price_decimals', 10, 5);
 add_filter('woocommerce_product_tabs', 'crisland_remove_product_tabs', 98);
 add_action('woocommerce_after_single_product_summary', 'crisland_template_single_product_description', 5);
 add_action('woocommerce_after_single_product_summary', 'crisland_template_single_product_technical_description', 5);
+add_action('woocommerce_shop_loop_item_title', 'crisland_template_loop_product_title', 10);

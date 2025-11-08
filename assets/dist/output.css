@@ -760,6 +760,10 @@ video {
   height: 100%;
 }
 
+.min-h-12 {
+  min-height: 3rem;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -834,6 +838,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-2\.5 {
+  gap: 0.625rem;
 }
 
 .gap-x-5 {
